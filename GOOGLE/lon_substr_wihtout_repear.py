@@ -58,3 +58,4 @@ class Solution:
                     break
                 seen.add(s[j])
                 max_length=max(max_length,j-i+1)
+        return max_length
