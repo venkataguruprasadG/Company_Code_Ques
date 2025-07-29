@@ -34,9 +34,19 @@ Traverse the array once, and for each element nums[i], check if target - nums[i]
 O(n) time complexity.
 '''
 
+from typing import List
+
 def Sum_of_two_numbers(nums,target):
     for i in range(len(nums)):
         for j in range(i + 1,len(nums)):
             if nums[i] + nums[j] == target:
                 return [i,j]
+class Solution:
+    def sum_of_two_with_hashmap(self, nums: List[int],target: int) -> List[int]:
+        num_to_index={} #declaring an empty dictionary.
+        for i, num in enumerate(nums):
+            complement = target-num
+            if complement in num_to_index:
+                return [num_to_index[complement],i]
+            num_to_index[num]=i
 
